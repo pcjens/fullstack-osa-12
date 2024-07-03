@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 /* GET statistics. */
 router.get('/statistics', async (req, res) => {
   res.send({
-    added_todos: Number.parseInt(await getAsync('added_todos')) ?? 0,
+    added_todos: Number.parseInt(await getAsync('added_todos') ?? '0'),
   });
 });
 
