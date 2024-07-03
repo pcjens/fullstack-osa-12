@@ -1,0 +1,14 @@
+Script started on 2024-07-03 21:25:12+03:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="139" LINES="74"]
+[1m[7m%[27m[1m[0m                                                                                                                                           [0m[27m[24m[J
+~/dev/fullstack-osa-12/script-answers
+$ [K[?2004hssudo [7mdocker container run -it ubuntu bash[27m[36D[27md[27mo[27mc[27mk[27me[27mr[27m [27mc[27mo[27mn[27mt[27ma[27mi[27mn[27me[27mr[27m [27mr[27mu[27mn[27m [27m-[27mi[27mt[27m [27mu[27mb[27mu[27mn[27mt[27mu[27m [27mb[27ma[27ms[27mh[?2004l
+[sudo] password for jens: 
+[?2004h]0;root@b8adf4ade592: /root@b8adf4ade592:/# mkdir-    -p /usr/src/app
+[?2004l[?2004h]0;root@b8adf4ade592: /root@b8adf4ade592:/# touch /usr/src/app/index.js
+[?2004l[?2004h]0;root@b8adf4ade592: /root@b8adf4ade592:/# [Kexit
+[?2004lexit
+[1m[7m%[27m[1m[0m                                                                                                                                           [0m[27m[24m[J
+~/dev/fullstack-osa-12/script-answers
+$ [K[?2004heexit[?2004l
+
+Script done on 2024-07-03 21:25:49+03:00 [COMMAND_EXIT_CODE="0"]
