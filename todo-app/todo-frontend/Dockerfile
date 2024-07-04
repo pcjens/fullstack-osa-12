@@ -1,12 +1,22 @@
-FROM node:20 AS builder
+FROM node:20 AS tester
 
 # Copy over everything
 WORKDIR /usr/src/app
 COPY . .
 
-# Build
+# Install deps and test
 ENV VITE_BACKEND_URL=http://localhost:3000
 RUN npm ci
+RUN npm test
+
+FROM node:20 AS builder
+
+# Copy over the source and dependencies from the tests
+WORKDIR /usr/src/app
+COPY --from=tester /usr/src/app .
+
+# Build dist
+ENV VITE_BACKEND_URL=http://localhost:3000
 RUN npm run build
 RUN npm prune --omit=dev
 
