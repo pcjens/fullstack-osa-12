@@ -5,7 +5,6 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install deps and test
-ENV VITE_BACKEND_URL=http://localhost:3000
 RUN npm ci
 RUN npm test
 
@@ -16,7 +15,7 @@ WORKDIR /usr/src/app
 COPY --from=tester /usr/src/app .
 
 # Build dist
-ENV VITE_BACKEND_URL=http://localhost:3000
+ENV VITE_BACKEND_URL=/api
 RUN npm run build
 RUN npm prune --omit=dev
 
