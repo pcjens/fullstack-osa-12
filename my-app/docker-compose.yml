@@ -1,0 +1,38 @@
+services:
+  frontend:
+    image: my-app-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongo_data:/data/db
+  backend:
+    image: my-app-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - MONGODB_URI=mongodb://the_username:the_password@mongo:27017/the_database
+    depends_on:
+      - mongo
+
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    depends_on:
+      - frontend
+
+volumes:
+  mongo_data:
+  redis_data:
